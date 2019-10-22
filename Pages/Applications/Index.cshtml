@@ -1,0 +1,48 @@
+﻿@page
+@model Apply_For_Jobs_Core_Webapp.Pages.Applications.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Applications</h2>
+
+<p>
+    <a class="btn btn-outline-success" asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Application[0].Advertisement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Application[0].Candidate)
+            </th>
+            <th>
+                Employer
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Application) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Advertisement.AdvertisementDisplayId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Candidate.RegsitrationNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Advertisement.Employer.Name)
+            </td>
+            <td>
+                <a class="btn btn-outline-success" asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a class="btn btn-outline-success" asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a class="btn btn-outline-success" asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

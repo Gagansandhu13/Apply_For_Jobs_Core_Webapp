@@ -1,0 +1,31 @@
+﻿@page
+@model Apply_For_Jobs_Core_Webapp.Pages.Applications.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Application</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Application.Advertisement)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Application.Advertisement.AdvertisementDisplayId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Application.Candidate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Application.Candidate.RegsitrationNumber)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-outline-success" asp-page="./Edit" asp-route-id="@Model.Application.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

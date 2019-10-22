@@ -1,0 +1,52 @@
+﻿@page
+@model Apply_For_Jobs_Core_Webapp.Pages.Advertisements.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Advertisement</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Advertisement.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Advertisement.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Advertisement.Description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Advertisement.Description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Advertisement.Employer)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Advertisement.Employer.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Advertisement.SalaryInformation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Advertisement.SalaryInformation)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Advertisement.JobType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Advertisement.JobType)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Advertisement.Id" />
+        <input type="submit" value="Delete" class="btn btn-outline-success"/> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

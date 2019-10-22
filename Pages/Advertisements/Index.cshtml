@@ -1,0 +1,60 @@
+﻿@page
+@model Apply_For_Jobs_Core_Webapp.Pages.Advertisements.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Advertisements</h2>
+
+<p>
+    <a class="btn btn-outline-success" asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Advertisement[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Advertisement[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Advertisement[0].Employer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Advertisement[0].SalaryInformation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Advertisement[0].JobType)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Advertisement) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employer.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SalaryInformation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobType)
+            </td>
+            <td>
+                <a class="btn btn-outline-success" asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a class="btn btn-outline-success" asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a class="btn btn-outline-success" asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

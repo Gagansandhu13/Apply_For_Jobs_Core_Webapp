@@ -1,0 +1,53 @@
+﻿@page
+@model Apply_For_Jobs_Core_Webapp.Pages.Advertisements.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>Advertisement</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Advertisement.Title" class="control-label"></label>
+                <input asp-for="Advertisement.Title" class="form-control" />
+                <span asp-validation-for="Advertisement.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Advertisement.Description" class="control-label"></label>
+                <input asp-for="Advertisement.Description" class="form-control" />
+                <span asp-validation-for="Advertisement.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Advertisement.EmployerId" class="control-label"></label>
+                <select asp-for="Advertisement.EmployerId" class ="form-control" asp-items="ViewBag.EmployerId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Advertisement.SalaryInformation" class="control-label"></label>
+                <input asp-for="Advertisement.SalaryInformation" class="form-control" />
+                <span asp-validation-for="Advertisement.SalaryInformation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Advertisement.JobType" class="control-label"></label>
+                <select asp-for="Advertisement.JobType" class="form-control" asp-items="ViewBag.JobType"></select>
+                <span asp-validation-for="Advertisement.JobType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-outline-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

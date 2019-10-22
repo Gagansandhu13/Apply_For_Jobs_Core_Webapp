@@ -1,0 +1,40 @@
+﻿@page
+@model Apply_For_Jobs_Core_Webapp.Pages.Candidiates.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Candidate</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Candidate.Id" />
+            <div class="form-group">
+                <label asp-for="Candidate.Name" class="control-label"></label>
+                <input asp-for="Candidate.Name" class="form-control" />
+                <span asp-validation-for="Candidate.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Candidate.ContactNumber" class="control-label"></label>
+                <input asp-for="Candidate.ContactNumber" class="form-control" />
+                <span asp-validation-for="Candidate.ContactNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-outline-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
